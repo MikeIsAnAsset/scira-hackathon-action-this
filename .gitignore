@@ -3,3 +3,4 @@ dist
 node_modules
 .env
 index2.html
+package-lock.json
