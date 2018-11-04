@@ -4,7 +4,7 @@
   "description": "---",
   "main": "index.js",
   "scripts": {
-    "start": "parcel build index.html",
+    "start": "",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,13 +25,6 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^3.3.7",
-    "docker": "^1.0.0",
-    "jquery": "^3.3.1",
-    "lodash": "^4.17.11",
-    "navigo": "^7.1.2",
-    "parcel": "1.9.7",
-    "popmotion": "^8.4.0",
-    "popper": "^1.0.1",
-    "popper.js": "^1.14.4"
+    "parcel": "1.9.7"
   }
 }
