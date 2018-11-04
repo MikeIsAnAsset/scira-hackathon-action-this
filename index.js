@@ -32,11 +32,14 @@ function addElement(){
     // create a new div element 
     // debugger;
     var newDiv = document.createElement("div"); 
-    newDiv.className = "navbar navbar-default";
-    // and give it some content 
-    var newContent = document.createTextNode("action this!"); 
+    newDiv.className = "jumbotron";
+
+    newDiv.innerHTML = `<h1>ACTiON THIS Dashboard</h1>      
+    <p>Below the reported incident in your community</p>
+
+`; 
     // add the text node to the newly created div
-    newDiv.appendChild(newContent);  
+     
   
     // add the newly created element and its content into the DOM 
     var currentDiv = document.getElementById('map'); 
@@ -98,7 +101,7 @@ axios
                 <div class="card" style="width: 286px;">
                     <img class="card-img-top" src="http://www.frcmedianews.org/wp-content/uploads/2017/07/Fire-Standard.jpg" alt="Card image cap" style="width: 286px;">
                     <div class="card-body" >
-                        <h3 class="card-title">${response.result}</h3>
+                        <h3 class="card-title">${response.result} - Reported</h3>
                         <p class="card-text">${Date(response.phenomenonTime)}</p>
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
@@ -110,7 +113,19 @@ axios
                 <div class="card" style="width: 286px;">
                     <img class="card-img-top" src="https://robertdebry.com/wp-content/uploads/2017/07/Car-Accident.jpg" alt="Card image cap" style="width: 286px;">
                     <div class="card-body" >
-                        <h3 class="card-title">${response.result}</h3>
+                        <h3 class="card-title">${response.result} - Reported</h3>
+                        <p class="card-text">${Date(response.phenomenonTime)}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                `;                 
+            } else {
+                return `
+
+                <div class="card" style="width: 286px;">
+                    <img class="card-img-top" src="https://static1.squarespace.com/static/51b3dc8ee4b051b96ceb10de/t/59e18ea1e9bfdf702d3b09d4/1507954340191/?format=2500w" alt="Card image cap" style="width: 286px;">
+                    <div class="card-body" >
+                        <h3 class="card-title">${response.result} - Reported</h3>
                         <p class="card-text">${Date(response.phenomenonTime)}</p>
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
