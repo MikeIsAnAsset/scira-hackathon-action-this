@@ -71,12 +71,15 @@ axios.get('https://stlouis18-03341.sensorup.com/v1.0/FeaturesOfInterest').then(f
 // debugger;
   // Convert the Locations into GeoJSON Features
   var geoJsonFeatures = success.data.value.map(function(location) {
-    return {
-      type: 'Feature',
-      geometry: location.feature
-    };
+        return {
+            type: 'Feature',
+            geometry: location.feature
+          };
+
+
   });
 
+  console.log(geoJsonFeatures);
   // Create a GeoJSON layer, and add it to the map
   var geoJsonLayerGroup = L.geoJSON(geoJsonFeatures);
   geoJsonLayerGroup.addTo(map);
@@ -85,11 +88,52 @@ axios.get('https://stlouis18-03341.sensorup.com/v1.0/FeaturesOfInterest').then(f
   map.fitBounds(geoJsonLayerGroup.getBounds());
 });
 
+var firebutton = document.querySelector('#fire').addEventListener('click', () => { incidentType('Fire'); } ); 
+var waterbuttonbutton = document.querySelector('#outage').addEventListener('click', () => { incidentType('Outage'); } ); 
+var windbutton = document.querySelector('#accident').addEventListener('click', () => { incidentType('Accident'); } ); 
+
+// Line of code to remove Observations
+//------------------------------------------------------------------------------
+    // axios({
+    //     'headers': {
+    //         'content-type': "application/json;charset=UTF-8"
+    //     },
+    //     method: 'DELETE',
+    //     url: 'https://stlouis18-03341.sensorup.com/v1.0/Observations(41)',
+    //     'content-type': "application/json;charset=UTF-8"
+    //     });
+
+//-----------------------------------------------------------------------------
+
+
+function incidentType(typeV){
+    var ev = new Date();
+    var jsonobj = JSON.stringify({
+        "resultTime" : ev,
+        "result": typeV,
+        "Datastream":{"@iot.id": 28},
+        "FeatureOfInterest":{"@iot.id": 29},
+        "phenomenonTime": ev
+    });
+
+
+console.log(jsonobj);
+    axios({
+        'headers': {
+            'content-type': "application/json;charset=UTF-8"
+        },
+        method: 'post',
+        url: 'https://stlouis18-03341.sensorup.com/v1.0/Observations',
+        data: `${jsonobj}`,
+        'content-type': "application/json;charset=UTF-8"
+        });
+}
+
 var rdata = document.querySelector(".card-deck");
 axios
     .get('https://stlouis18-03341.sensorup.com/v1.0/Observations')
     .then(function(success) {
-        // debugger;
+
         var state = store.getState();
         state.locale = success.data.value;
         
@@ -123,10 +167,10 @@ axios
                 return `
 
                 <div class="card" style="width: 286px;">
-                    <img class="card-img-top" src="https://static1.squarespace.com/static/51b3dc8ee4b051b96ceb10de/t/59e18ea1e9bfdf702d3b09d4/1507954340191/?format=2500w" alt="Card image cap" style="width: 286px;">
+                    <img class="card-img-top" src="https://www.kinsleyks.com/images/stock-photos/power-outage-image.jpg/image" alt="Card image cap" style="width: 286px;">
                     <div class="card-body" >
                         <h3 class="card-title">${response.result} - Reported</h3>
-                        <p class="card-text">${Date(response.phenomenonTime)}</p>
+                        <p class="card-text">${response.phenomenonTime}</p>
                         <a href="#" class="btn btn-primary">Get Details</a>
                     </div>
                 </div>
