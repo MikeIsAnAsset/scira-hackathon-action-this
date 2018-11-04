@@ -103,7 +103,7 @@ axios
                     <div class="card-body" >
                         <h3 class="card-title">${response.result} - Reported</h3>
                         <p class="card-text">${Date(response.phenomenonTime)}</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn btn-primary">Get Details</a>
                     </div>
                 </div>
                 `; 
@@ -115,7 +115,7 @@ axios
                     <div class="card-body" >
                         <h3 class="card-title">${response.result} - Reported</h3>
                         <p class="card-text">${Date(response.phenomenonTime)}</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn btn-primary">Get Details</a>
                     </div>
                 </div>
                 `;                 
@@ -127,7 +127,7 @@ axios
                     <div class="card-body" >
                         <h3 class="card-title">${response.result} - Reported</h3>
                         <p class="card-text">${Date(response.phenomenonTime)}</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn btn-primary">Get Details</a>
                     </div>
                 </div>
                 `;                 
