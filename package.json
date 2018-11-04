@@ -1,0 +1,37 @@
+{
+  "name": "JamalPryor",
+  "version": "1.0.0",
+  "description": "---",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel build index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamalp83/scira-hackathon-action-this.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamalp83/scira-hackathon-action-this/issues"
+  },
+  "homepage": "https://github.com/jamalp83/scira-hackathon-action-this#readme",
+  "devDependencies": {
+    "cssnano": "^4.1.0",
+    "eslint": "^5.3.0"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "^3.3.7",
+    "docker": "^1.0.0",
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.11",
+    "navigo": "^7.1.2",
+    "parcel": "1.9.7",
+    "popmotion": "^8.4.0",
+    "popper": "^1.0.1",
+    "popper.js": "^1.14.4"
+  }
+}
