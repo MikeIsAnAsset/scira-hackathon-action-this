@@ -22,6 +22,8 @@ class Store{
     }
 }
 
+
+
 store = new Store(State);
 
 document.body.onload = addElement();
@@ -80,7 +82,7 @@ axios.get('https://stlouis18-03341.sensorup.com/v1.0/FeaturesOfInterest').then(f
   map.fitBounds(geoJsonLayerGroup.getBounds());
 });
 
-var rdata = document.querySelector(".col-sm-6");
+var rdata = document.querySelector(".card-deck");
 axios
     .get('https://stlouis18-03341.sensorup.com/v1.0/Observations')
     .then(function(success) {
@@ -89,15 +91,38 @@ axios
         state.locale = success.data.value;
         
         rdata.innerHTML = state.locale.map(function(response){
-    
-            return `
+            // debugger;
+            if(response.result.toLowerCase() == 'fire'){
+                return `
 
-            <ul>
-           <li> ${response.result}</li>
-           <li> ${Date(response.phenomenonTime)}</li>
-            </ul>
-`; 
+                <div class="card" style="width: 286px;">
+                    <img class="card-img-top" src="http://www.frcmedianews.org/wp-content/uploads/2017/07/Fire-Standard.jpg" alt="Card image cap" style="width: 286px;">
+                    <div class="card-body" >
+                        <h3 class="card-title">${response.result}</h3>
+                        <p class="card-text">${Date(response.phenomenonTime)}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                `; 
+            } else if(response.result.toLowerCase() == 'accident'){
+                return `
+
+                <div class="card" style="width: 286px;">
+                    <img class="card-img-top" src="https://robertdebry.com/wp-content/uploads/2017/07/Car-Accident.jpg" alt="Card image cap" style="width: 286px;">
+                    <div class="card-body" >
+                        <h3 class="card-title">${response.result}</h3>
+                        <p class="card-text">${Date(response.phenomenonTime)}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                `;                 
+            }
+
         });
     });
 
 
+
+
+
+    

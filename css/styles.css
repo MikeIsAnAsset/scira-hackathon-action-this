@@ -1,0 +1,22 @@
+.card-deck {
+    display: flex;
+    flex-direction: row;
+}
+
+.card {
+    border: 1px solid rgba(0,0,0,.125);
+    margin: 1.25rem;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: #E20 !important;
+}
+
+.navbar-default {
+    background-color: #E20 !important;
+}
